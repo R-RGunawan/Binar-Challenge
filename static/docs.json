@@ -1,0 +1,110 @@
+{
+    "openapi": "3.0.3",
+    "info":{ 
+        "title":"It's Time for C-C-C-Challenge!",
+        "version":"1.0.0",
+        "description": "Clean Tweet Data",
+        "contact": {
+            "name": "Gun",
+            "email": "Rahmat.rgunawan@gmail.com"
+        },
+        "license": {
+            "name": "APACHE 2.0",
+            "url": "htpps://www.apache.org/licenses/LICENSE-2.0"
+        }
+    },
+
+    "servers":[
+        {
+            "description": "Gun's Gold Challenge: The RESTful API Server",
+            "url": "/"
+         }
+
+    ],
+
+    "externalDocs": {
+        "description": "Github Gold Challenge"
+    },
+
+    "paths":{
+        "/text":{
+            "post":{
+                "summary": "Post a text",
+                "description": "Put a text to clean",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "text":{
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                } 
+            }
+        },    
+        "/text/csv":{
+            "post":{
+                "summary": "Post a csv file",
+                "description": "Post a csv file to clean",
+                "requestBody":{
+                    "required": true,
+                    "content": {
+                        "multipart/form-data":{
+                            "schema":{
+                                "type": "object",
+                                "properties": {
+                                    "file":{
+                                        "type": "string",
+                                        "format": "base64"
+                                    }
+                                }
+   
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    },
+                    "400":{
+                        "description": "Misunderstood"
+                    },
+                    "401":{
+                        "description": "Unauthorized"
+                    },
+                    "404":{
+                        "description": "Not Found"
+                    },
+                    "500":{
+                        "description": "Server Error"
+                    }
+                }
+            }
+        }
+
+    }
+}
