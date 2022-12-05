@@ -1,2 +1,2 @@
 # Binar Challenge
- Text Celaning API study
+ Text Cleaning API study
